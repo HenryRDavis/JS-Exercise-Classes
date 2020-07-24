@@ -40,10 +40,10 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person  {
-  constructor(attributes){
-    this.name = attributes.name;
-    this.age = attributes.age;
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
     this.stomach = [];
   }
   eat(someFood) {
@@ -153,7 +153,9 @@ class Instructor extends Lambdasian{
   demo(subject){
     return `Today we are learning about ${subject}`;
   }
-  grade
+  grade(student,subject){
+    `${student.name} receives a perfect score on ${subject}`
+  }
 }
 
 const student = new Instructor({
@@ -185,8 +187,24 @@ const theThings = new Instructor({
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian{
-
+constructor(attributes){
+  super(attributes);
+  this.previousBackground = attributes.previousBackground;
+  this.className = attributes.className;
+  this.favSubjects = ['HTML', 'CSS', 'JS'];
 }
+listSubjects(){
+  return `Loving ${this.favSubjects}`;
+}
+PRAssignment(){
+`${student.name} has submitted a PR for ${this.favSubjects[0]}`;
+}
+sprintChallenge(){
+`${student.name} has begun sprint challenge on ${this.favSubjects[2]}`
+}
+}
+
+
 
 /*
   TASK 6
@@ -201,8 +219,18 @@ class Student extends Lambdasian{
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
-
+class ProjectManager extends Instructor{
+  constructor(attributes){
+    super(attributes)
+    this.gradClass = attributes.gradClass
+    this.favInstructor = attributes.favInstructor
+  }
+  standUp(slackChannel){
+    return `${this.name} annouces to ${slackChannel}, @channel standy times!`
+  }
+  debugCode(subject){
+    `${this.name} debugs ${student.name}'s code on ${subject}`
+  }
 }
 
 /*
